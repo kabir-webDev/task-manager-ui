@@ -1,0 +1,344 @@
+// /* You can add global styles to this file, and also import other style files */
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$kc-primary: mat.define-palette(mat.$cyan-palette, 300);
+$kc-accent: mat.define-palette(mat.$indigo-palette, 500, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$kc-warn: mat.define-palette(mat.$red-palette);
+
+// Typo
+$kc-typography: mat.define-typography-config($font-family: '"Open Sans", sans-serif');
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$kc-theme: mat.define-light-theme((color: (
+  primary: $kc-primary,
+  accent: $kc-accent,
+  warn: $kc-warn,
+),
+  typography: $kc-typography,
+));
+$kc-theme-dark: mat.define-dark-theme((color: (primary: $kc-primary,
+  accent: $kc-accent,
+  warn: $kc-warn,
+),
+));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($kc-theme);
+
+$primaryBG: #FFFFFF;
+$primaryText: #454545;
+
+.dark {
+  @include mat.all-component-colors($kc-theme-dark);
+  background: $primaryBG;
+
+  .mat-drawer-container {
+    background: $primaryBG;
+  }
+
+  .mat-drawer {
+    background: #131D35;
+    box-shadow: 7px 2px 8px -7px rgba(10, 27, 51, 0.75);
+    -webkit-box-shadow: 7px 2px 8px -7px rgba(10, 27, 51, 0.75);
+    -moz-box-shadow: 7px 2px 8px -7px rgba(10, 27, 51, 0.75);
+  }
+
+  .mat-table {
+    background: #0D152F;
+  }
+
+  .mat-header-cell {
+    background-color: var(--background-kc-stepper);
+  }
+
+  .mat-card {
+    background: #151F36;
+  }
+
+  .mat-select-panel,
+  .mat-stepper-horizontal,
+  .mat-stepper-vertical,
+  .mat-expansion-panel,
+  .mat-menu-content {
+    background: var(--background-kc-stepper);
+  }
+
+  .mat-dialog-container {
+    background: var(--color-bg-primary) !important;
+  }
+
+  .mat-form-field-outline {
+    background: var(--background-info-name-box);
+  }
+
+}
+
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./assets/scss";
+
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  color: $primaryText;
+  font-family: 'Open Sans';
+  font-size: 100%;
+  letter-spacing: 0.7px;
+  /*word-break: break-word;*/
+}
+
+.kc-card{
+  background: #F4F8FF;
+  box-shadow: 0px 0px 11px rgba(40, 78, 153, 0.2);
+  padding: 24px;
+  border-radius: 5px;
+}
+.card-title{
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 33px;
+  color: #454545;
+}
+
+.mat-drawer-container {
+  height: 100% !important;
+}
+
+.active-link {
+  border-bottom: 8px solid #13293D !important;
+  background: #14243B !important
+}
+
+.active-tab-link {
+  background: #22375B;
+}
+
+hr {
+  border-color: var(--color-border-200) !important;
+}
+
+.full-rounded {
+  border-radius: 50% !important;
+}
+
+.rounded-button {
+  border-radius: 25px !important;
+}
+
+.text-error {
+  color: darkred !important;
+}
+
+.text-warn {
+  color: darkorange !important;
+}
+
+.text-success {
+  color: darkgreen !important;
+}
+
+.text-info {
+  color: #5BC4D6 !important;
+}
+
+.snackbar-dark {
+  background: #22375B !important;
+  color: white !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #C5CEDA;
+  border-radius: 100px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+.icon_sm {
+  $size: 20px;
+  font-size: $size;
+  line-height: $size;
+  width: $size !important;
+  height: $size !important;
+}
+
+.info-name-box {
+  background: var(--background-info-name-box);
+  border: 1.5px solid var(--color-border);
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 15px;
+  word-break: break-all;
+  white-space: pre-line;
+
+  ._label {
+    @apply text-sm;
+  }
+
+  ._val {
+    @apply text-lg font-medium
+  }
+}
+.table {
+  &-container {
+    overflow-x: auto;
+  }
+  &-ui {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--background);
+    position: relative;
+    overflow: hidden;
+    min-width: 570px;
+    .inner-container {
+      //height: 221px;
+      // overflow-y: scroll;
+     // padding-bottom: 40px;
+      &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+        background: var(--background-info-name-box);
+      }
+      &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        background: var(--background-kc-stepper);
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--background-kc-stepper);
+      }
+    }
+  }
+}
+mat-button-toggle-group {
+  .mat-button-toggle-button{
+    background: var(--background-kc-stepper);
+  }
+  .mat-button-toggle-checked{
+    .mat-button-toggle-button{
+      background: var(--background-info-name-box);
+      .check-icon{
+        display: block;
+        margin-right: 10px;
+      }
+    }
+  }
+  .mat-button-toggle-appearance-standard{
+    background: var(--background-kc-stepper) !important;
+  }
+  .mat-button-toggle-checked{
+    background: var(--background-info-name-box)  !important;
+  }
+}
+
+.dashboard__container{
+  @apply w-full;
+}
+.alert__section{
+  @apply  w-[65%] bg-[#F0FDF4] py-3 px-5 mx-auto border-[1px] border-[#BBF7D0] rounded-[6px] mt-4 flex relative;
+}
+.tab__section{
+  margin-top: 44px;
+  margin-bottom: 50px
+}
+.tab__btn{
+  @apply w-80 flex mx-auto ;
+  border: 1px solid #DADADA;
+  box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px -1px rgba(16, 24, 40, 0.1);
+  border-radius: 6px;
+  button{
+      @apply py-2 w-[33.33%] m-[2px];
+  }
+  .active{
+      @apply bg-[#F5F5FF] text-[#0408E7] rounded-md;
+  }
+}
+.tab__content{
+  @apply mx-[165px] flex justify-around flex-wrap;
+}
+.subject__card{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 16px;
+  width: 350px;
+  height: 240px;
+  border: 1px solid #D1D5DB;
+  border-radius: 16px;
+  margin-top: 44px;
+}
+.subject__card:hover{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 16px;
+  width: 350px;
+  height: 240px;
+  border: 2px solid #4B4EFC;
+  box-shadow: 0px 20px 25px -5px rgba(16, 24, 40, 0.1), 0px 8px 10px -6px rgba(16, 24, 40, 0.1);
+  border-radius: 16px;
+  margin-top: 44px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

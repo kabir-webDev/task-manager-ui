@@ -1,0 +1,80 @@
+<div class="w-full h-full grid grid-cols-1 xl:grid-cols-2">
+    <div class=" bg-[#EEF4FF] flex flex-col justify-center items-center overflow-hidden relative shadow-md rounded-r-[30px]">
+
+      <img class=" absolute" src="../../../assets/images/login.svg" width="536" height="465"/>
+    </div>
+    
+    <div class="py-20  flex flex-col justify-center items-center">
+      <div class="relative">
+        <div class="form-card h-[580px] w-[560px] flex flex-col justify-around">
+
+          <div class="flex flex-col justify-center items-center">
+            <img src="../../../assets/images/brac_logo.png" width="180" height="62" alt="" class="" />
+
+            <div class="text-paragraph">
+                <p class="text-center text-[#454545] text-[17px] pt-5">
+                Sign In with your credential below 
+                </p>
+            </div>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+            <div class="space-y-4">
+              <mat-form-field appearance="outline" class="kc-form-field">
+                <mat-label>Email</mat-label>
+                <input
+                  type="email"
+                  matInput
+                  placeholder="Ex. pat@example.com"
+                  formControlName="email"
+                />
+                <mat-error *ngIf="loginForm.get('email').errors?.required">
+                  We need an email address to log you in
+                </mat-error>
+                <mat-error *ngIf="loginForm.get('email').errors?.email">
+                  We need a valid email address to log you in
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="kc-form-field">
+                <mat-label>Password</mat-label>
+                <input
+                  [type]="passwordHide ? 'password' : 'text'"
+                  matInput
+                  placeholder="Ex. pat@example.com"
+                  formControlName="password"
+                />
+                <mat-icon matSuffix (click)="passwordHide = !passwordHide">{{
+                  passwordHide ? "visibility_off" : "visibility"
+                  }}
+                </mat-icon>
+                <mat-error *ngIf="loginForm.get('password').errors?.required">
+                  We need password to log you in
+                </mat-error>
+              </mat-form-field>
+              <div class="flex justify-end  pb-4 text-[#4164A9] text-[13px]" >
+                <a class="-mt-8" routerLink="/auth/forgot-password">Forgot Password?</a>
+              </div>
+              <button
+                class="login-button  block w-full"
+                type="submit"
+                [disabled]="!loginForm.valid"
+              >
+                <span class="text-white text-button" *ngIf="!isLoading; else progressbar">Sign In</span>
+                <ng-template #progressbar class="">
+                  <div class="w-52 mx-auto p-3">
+                    <mat-progress-bar
+                      class="kc-progress-bar"
+                      mode="indeterminate"
+                    >
+                    </mat-progress-bar>
+                  </div>
+                </ng-template>
+              </button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

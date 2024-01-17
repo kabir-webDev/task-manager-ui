@@ -1,0 +1,10 @@
+<div class="logo w-full flex justify-center flex-col items-center h-[112px]">
+<img src="../../../../assets//images//brac_logo.png" width="130" height="45" alt="">
+</div>
+<mat-divider></mat-divider>
+<div class="mt-4">
+    <kc-sidenav-item *ngFor="let item of sidenavItems; trackBy: trackByRoute"
+        [item]="item"
+        [level]="0">
+    </kc-sidenav-item>
+  </div>

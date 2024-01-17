@@ -1,0 +1,21 @@
+.login-button{
+    @apply bg-[#4164A9] hover:bg-[#2a4c91] py-4 px-6 text-white  rounded-[2px] gap-[8px] focus:bg-[#4164A9];
+    // &:disabled{
+    //     @apply bg-gray-300 text-white;
+    // }
+}
+.form-card{
+    @apply p-12 relative space-y-8 bg-[#EEF4FF] border-[2px] border-[#DDE9FF] rounded; 
+    box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.1);
+}
+::ng-deep .mat-form-field-outline{
+    background: white;
+}
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: green !important;
+  } 
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }

@@ -1,0 +1,59 @@
+<a *ngIf="isLink(item) && !isFunction(item.route)"
+   [fragment]="item.fragment"
+   [routerLinkActiveOptions]="item.routerLinkActive || { exact: false }"
+   [routerLink]="item.route"
+   class="item"
+   matRipple
+   routerLinkActive="active">
+  <mat-icon *ngIf="level === 0" class="item-icon">{{item.icon}}</mat-icon>
+  <span class="item-label">{{ item.label }}</span>
+  <span *ngIf="item.badge"
+        [style.background]="'var(' + item.badge.background + ')' | safeStyle"
+        [style.color]="'var(' + item.badge.color + ')' | safeStyle"
+        class="item-badge"
+      >{{ item.badge.value }}</span>
+</a>
+
+<div (click)="item.route()"
+     *ngIf="isLink(item) && isFunction(item.route)"
+     class="item"
+     matRipple
+     routerLinkActive="active">
+  <mat-icon *ngIf="level === 0" class="item-icon">{{item.icon}}</mat-icon>
+  <span class="item-label">{{ item.label }}</span>
+  <span *ngIf="item.badge"
+        [style.background]="'var(' + item.badge.background + ')' | safeStyle"
+        [style.color]="'var(' + item.badge.color + ')' | safeStyle"
+        class="item-badge"
+      >{{ item.badge.value }}</span>
+</div>
+
+<ng-container *ngIf="isDropdown(item)">
+  <div (click)="toggleOpen()"
+       [class.active]="isOpen || isActive"
+       [class.open]="isOpen"
+       class="item"
+       matRipple>
+    <mat-icon *ngIf="level === 0" class="item-icon">{{item.icon}}</mat-icon>
+    <span class="item-label">{{ item.label }}</span>
+    <span *ngIf="item.badge"
+          [style.background]="'var(' + item.badge.background + ')' | safeStyle"
+          [style.color]="'var(' + item.badge.color + ')' | safeStyle"
+          class="item-badge"
+        >{{ item.badge.value }}</span>
+    <mat-icon class="item-dropdown-icon">navigate_next</mat-icon>
+  </div>
+  <div [@dropdown]="isOpen" class="item-dropdown">
+    <span *ngFor="let subItem of item.children">
+       <kc-sidenav-item *ngIf="subItem.isVisible" [item]="subItem" [level]="level + 1"></kc-sidenav-item>
+    </span>
+
+  </div>
+</ng-container>
+
+
+<ng-container *ngIf="isSubheading(item)">
+  <div class="subheading">{{ item.label }}</div>
+  <kc-sidenav-item *ngFor="let subItem of item.children" [item]="subItem" [level]="0"></kc-sidenav-item>
+</ng-container>
+

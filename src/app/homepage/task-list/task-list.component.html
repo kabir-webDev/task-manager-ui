@@ -1,0 +1,27 @@
+<h1 class="text-center pt-20 text-2xl font-bold">Task List</h1>
+
+<div cdkDropListGroup class="flex justify-center pt-32">
+    <div class="example-container">
+      <h2>To do</h2>
+      <div cdkDropList
+           #todoList="cdkDropList"
+           [cdkDropListData]="todo"
+           [cdkDropListConnectedTo]="doneList"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Testing</h2>
+      <div cdkDropList
+           #doneList="cdkDropList"
+           [cdkDropListData]="done"
+           [cdkDropListConnectedTo]="todoList"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>

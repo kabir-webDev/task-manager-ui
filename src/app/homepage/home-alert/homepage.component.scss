@@ -1,0 +1,133 @@
+.dashboard__container{
+    @apply w-full;
+}
+.alert__section{
+    @apply  w-[65%] bg-[#F0FDF4] py-3 px-5 mx-auto border-[1px] border-[#BBF7D0] rounded-[6px] mt-4 flex relative;
+}
+.tab__section{
+    margin-top: 44px;
+    margin-bottom: 50px
+}
+.tab__btn{
+    @apply w-80 flex mx-auto ;
+    border: 1px solid #DADADA;
+    box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px -1px rgba(16, 24, 40, 0.1);
+    border-radius: 6px;
+    button{
+        @apply py-2 w-[33.33%] m-[2px];
+    }
+    .active{
+        @apply bg-[#F5F5FF] text-[#0408E7] rounded-md;
+    }
+}
+.tab__content{
+    @apply mx-[165px] flex justify-around flex-wrap;
+}
+.subject__card{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 16px;
+    width: 350px;
+    height: 240px;
+    border: 1px solid #D1D5DB;
+    border-radius: 16px;
+    margin-top: 44px;
+}
+.subject__card:hover{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 16px;
+    width: 350px;
+    height: 240px;
+    border: 2px solid #4B4EFC;
+    box-shadow: 0px 20px 25px -5px rgba(16, 24, 40, 0.1), 0px 8px 10px -6px rgba(16, 24, 40, 0.1);
+    border-radius: 16px;
+    margin-top: 44px;
+}
+
+// body {
+//     font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',
+//       Arial, sans-serif;
+//   }
+//   .compare-with-me {
+//     position: fixed;
+//     z-index: 1;
+//     opacity: 0.2;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     text-align: center;
+//   }
+//   .compare-with-me.small {
+//     width: 20px;
+//     height: 20px;
+//     right: unset;
+//     border: 1px solid;
+//     cursor: pointer;
+//     opacity: 1;
+//     overflow: hidden;
+//   }
+//   .outCircle {
+//     width: 200px;
+//     height: 200px;
+//     background-color: lightblue;
+//     left: 270px;
+//     position: absolute;
+//     top: 50px;
+//     -moz-border-radius: 100px;
+//     -webkit-border-radius: 100px;
+//     border-radius: 100px;
+//   }
+  
+//   .rotate {
+//     width: 100%;
+//     height: 100%;
+//     animation: 3s linear 1s infinite running slidein;
+//   }
+  
+//   // .counterrotate {
+//   //   width: 50px;
+//   //   height: 50px;
+//   //   -webkit-animation: ccircle 10s infinite linear;
+//   // }
+  
+//   .inner {
+//     width: 100px;
+//     height: 100px;
+//     background: red;
+//     -moz-border-radius: 50px;
+//     -webkit-border-radius: 50px;
+//     border-radius: 100px;
+//     position: absolute;
+//     left: 0px;
+//     top: 0px;
+//     background-color: red;
+//     display: block;
+//   }
+  
+//   @-webkit-keyframes circle {
+//     from {
+//       -webkit-transform: rotateZ(0deg);
+//     }
+//     to {
+//       -webkit-transform: rotateZ(360deg);
+//     }
+//   }
+  
+//   @-webkit-keyframes ccircle {
+//     from {
+//       -webkit-transform: rotateZ(360deg);
+//     }
+//     to {
+//       -webkit-transform: rotateZ(0deg);
+//     }
+//   }
+  
