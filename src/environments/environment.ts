@@ -7,9 +7,9 @@ export const environment = {
   appUrl: webappUrl,
   production: false,
   // v1AuthEndpoint: 'http://localhost:8085/api/',
-    v1AuthEndpoint: 'http://192.168.68.145:8070/api/v1/',
-    v1ApiEndPoint: 'http://192.168.68.145:8070/api/v1/',
-    v1WsEndPoint: 'ws://192.168.68.145:8070/api/v1/',
+    // v1AuthEndpoint: 'http://192.168.68.145:8070/api/v1/',
+    v1ApiEndPoint: 'https://task-manager-two-roan.vercel.app/api/v1/',
+    // v1WsEndPoint: 'ws://192.168.68.145:8070/api/v1/',
 /*
   v1AuthEndpoint: 'https://multicluster-gateway.console.klovercloud.com/api/',
   v1ApiEndPoint: 'https://multicluster-gateway.console.klovercloud.com/api/v1/',

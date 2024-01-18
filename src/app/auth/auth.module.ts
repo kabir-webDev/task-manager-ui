@@ -15,11 +15,17 @@ import { MatPseudoCheckboxModule, MatRippleModule } from '@angular/material/core
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterLink, RouterModule } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { AuthService } from './auth.service';
+import { RequesterService } from '../shared/services/requester.service';
 
 
 @NgModule({
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +47,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatPseudoCheckboxModule,
     MatProgressBarModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RouterModule,
+  ],
+  providers: [
+    AuthService, RequesterService
   ]
 })
 export class AuthModule { }

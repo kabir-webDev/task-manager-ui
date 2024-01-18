@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Howl } from 'howler';
+import { RequesterService } from 'src/app/shared/services/requester.service';
 
 @Component({
   selector: 'edu-homepage',
@@ -7,88 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
   isAlertOpen: boolean = true;
-  constructor() {}
+  private sound: Howl;
+  constructor(
+    private request: RequesterService
+  ) {
+
+    this.sound = new Howl({
+      // src: ['../../assets/audio/tap.mp3',]
+      src: ['../../assets/audio/maar.mp3',]
+    });
+  }
 
   ngOnInit(): void {
   }
   closeFunction(){
     this.isAlertOpen = false;
   }
-  subjectArrayScience: Array<any> = [
-    {
-      icon:'phy.png',
-      name:'Physics',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'chem.png',
-      name:'Chemistry',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'bio.png',
-      name:'Biology',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'mat.png',
-      name:'Mathemetics',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'phy.png',
-      name:'Bangla',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'mat.png',
-      name:'English',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'mat.png',
-      name:'Higher Mathemetics',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'bio.png',
-      name:'StoryBook',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'bio.png',
-      name:'Bangla',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'chem.png',
-      name:'English',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'phy.png',
-      name:'Higher Mathemetics',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-    {
-      icon:'phy.png',
-      name:'Bangla',
-      totalVideo:999,
-      videoUrl:'www.google.com'
-    },
-  ]
-  tabFunction(section:string){
-    
+
+  playNotification() {
+    this.sound.play();
+  }
+  logOut(): void {
+    this.request.logout();
   }
 }

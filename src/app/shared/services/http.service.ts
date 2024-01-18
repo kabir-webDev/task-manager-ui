@@ -26,14 +26,14 @@ export class HttpService {
     return this.http.get(this.apiBaseUrl + url, httpOptions)
   }
 
-  // post(url: string, data: any, queryParams?: any): Observable<any> {
-  //   let httpOptions = {
-  //     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-  //     params: queryParams || {}
-  //   };
-  //   const body = JSON.stringify(data);
-  //   return this.http.post(this.apiBaseUrl + url, body, httpOptions)
-  // }
+  post(url: string, data: any, queryParams?: any): Observable<any> {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      params: queryParams || {}
+    };
+    const body = JSON.stringify(data);
+    return this.http.post(this.apiBaseUrl + url, body, httpOptions)
+  }
 
   // put(url: string, data: any, queryParams?: any): Observable<any> {
   //   const queryParameters = queryParams ? queryParams : {};

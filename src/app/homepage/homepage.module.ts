@@ -12,6 +12,11 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
+import { RouterModule } from '@angular/router';
+import { RequesterService } from '../shared/services/requester.service';
+import { AuthService } from '../auth/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthGuard } from '../shared/guard/auth.guard';
 
 
 @NgModule({
@@ -24,7 +29,11 @@ import {
     HomepageRoutingModule,
     MatIconModule,
     CdkDropList, 
-    CdkDrag
+    CdkDrag,
+    RouterModule,
+  ],
+  providers: [
+    RequesterService, AuthService, MatSnackBar, AuthGuard
   ]
 })
 export class HomepageModule { }

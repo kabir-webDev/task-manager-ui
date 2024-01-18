@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,19 @@ const routes: Routes = [
       title: 'Login',
       toolbarTitle: 'Login',
     }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      title: 'register',
+      toolbarTitle: 'Register',
+    }
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
 ];
 
